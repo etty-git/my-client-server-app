@@ -2,7 +2,6 @@
 import { MdDelete, MdEdit } from "react-icons/md"
 import { useState } from "react"
 import Axios from "axios";
-
 const TaskItem = ({ task, fatchTasks }) => {
 
     const [isEdit, setIsEdit] = useState(false)

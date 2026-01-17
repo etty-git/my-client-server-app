@@ -4,14 +4,13 @@ import Axios from "axios"
 import Postitem from "./Postitem"
 const PostList=()=>{
 const[posts,setposts]=useState([])
-const [filterText, setFilterText] = useState("")
+const[filterText, setFilterText] = useState("")
 const fatchPost = async () => {
     const { data } = await Axios.get("http://localhost:7001/api/post")
     setposts(data)
   }
- const filteredTasks = posts.filter((post) =>
-    post.title.toLowerCase().includes(filterText.toLowerCase())
-  )
+const filteredTasks = posts.filter((post) =>
+post.title.toLowerCase().includes(filterText.toLowerCase()))
   useEffect(() => {
     fatchPost()
   }, [])
