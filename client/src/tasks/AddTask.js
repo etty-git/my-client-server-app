@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import '../App.css'
 
 const AddTask = () => {
   const [title, setTitle] = useState("");
@@ -24,26 +24,37 @@ const AddTask = () => {
     }
   };
 
-  return (
-    <form className="add-task-form" onSubmit={submitForm}>
+   return (
+    <form
+      className="max-w-xl mx-auto bg-white p-6 rounded-2xl shadow-md flex flex-col gap-4"
+      onSubmit={submitForm}
+    >
       <input
         type="text"
         value={title}
         placeholder="Please add title"
         required
         onChange={(e) => setTitle(e.target.value)}
+        className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
 
-      <label>
+      <label className="flex items-center gap-2 text-gray-700">
         <input
           type="checkbox"
           checked={completed}
           onChange={(e) => setCompleted(e.target.checked)}
+          className="w-5 h-5 accent-blue-600"
         />
         Completed
       </label>
       
-      <button type="submit" disabled={title === ""}>Send</button>
+      <button
+        type="submit"
+        disabled={title === ""}
+        className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50"
+      >
+        Send
+      </button>
     </form>
   );
 };

@@ -22,24 +22,37 @@ const navigate = useNavigate();
     }
   };
   
+   
   return (
-    <form className="add-photos-form" onSubmit={submitForm}>
+    <form
+      className="add-photos-form max-w-md mx-auto p-6 bg-white rounded-2xl shadow-md flex flex-col space-y-3"
+      onSubmit={submitForm}
+    >
       <input
         type="text"
         value={title}
         placeholder="Please add title"
         required
         onChange={(e) => setTitle(e.target.value)}
+        className="border border-gray-300 rounded-lg px-3 py-2"
       />
-       <input
+      <input
         type="text"
         value={imagurl}
         placeholder="Please add url"
         required
         onChange={(e) => seturl(e.target.value)}
+        className="border border-gray-300 rounded-lg px-3 py-2"
       />
-      <button type="submit" disabled={title === ""&&imagurl===""}>Send</button>
+      <button
+        type="submit"
+        disabled={title === "" && imagurl === ""}
+        className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-500 transition"
+      >
+        Send
+      </button>
     </form>
   );
+   
 }
 export default AddPhotos

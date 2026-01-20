@@ -10,13 +10,14 @@ import AddPosts from './posts/AddPost';
 import UsersList from './users/UsersList';
 import PhotosList from './photos/PhotosList';
 import AddPhotos from'./photos/AddPhotos'
+import Homepage from './Homepage';
 function App() {
   return (
      <div className="min-h-screen bg-gradient-to-br from-purple-300 via-pink-200 to-yellow-200 flex flex-col">
      <Router>
       <Routes>
         <Route path='/' element={<Layout />}>
-        <Route index element={<h1>home page</h1>}/>
+        <Route index element={<Homepage />}/>
         <Route path='/tasks' element={<TaskList />}/>
         <Route path='/tasks/add' element={<AddTask />}/>
         <Route path='/post/add' element={<AddPosts/>}/>

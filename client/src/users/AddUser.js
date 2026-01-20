@@ -34,58 +34,58 @@ const submitForm = async (e) => {
   };
 
   return (
-    <form className="add-user-form" onSubmit={submitForm}>
+    <form className="add-user-form max-w-md mx-auto p-6 bg-white rounded-xl shadow-md flex flex-col space-y-3" onSubmit={submitForm}>
       <input
         type="text"
         value={name}
-        placeholder="Please add user"
+        placeholder="Please add name"
         required
         onChange={(e) => setname(e.target.value)}
+        className="border border-gray-300 rounded-lg px-3 py-2"
       />
       <input
         type="text"
         value={username}
-        placeholder="Please add uusername"
+        placeholder="Please add username"
         required
         onChange={(e) => setusername(e.target.value)}
+        className="border border-gray-300 rounded-lg px-3 py-2"
       />
       <input
         type="text"
         value={email}
-        placeholder="Please add your email"
+        placeholder="Please add email"
         onChange={(e) => setemail(e.target.value)}
+        className="border border-gray-300 rounded-lg px-3 py-2"
       />
       <input
         type="text"
         value={phone}
-        placeholder="Please addyour phone number"
+        placeholder="Please add phone number"
         onChange={(e) => setphone(e.target.value)}
+        className="border border-gray-300 rounded-lg px-3 py-2"
       />
-     <input
-  type="text"
-  placeholder="City"
-  value={address.city}
-  onChange={(e) =>
-    setaddress({
-      ...address,
-      city: e.target.value
-    })
-  }
-/>
-<input
-  type="text"
-  placeholder="Street"
-  value={address.street}
-  onChange={(e) =>
-    setaddress({
-      ...address,
-      street: e.target.value
-    })
-  }
-/>
-
-  
-      <button type="submit" disabled={username === ""}>Send</button>
+      <input
+        type="text"
+        placeholder="City"
+        value={address.city}
+        onChange={(e) => setaddress({ ...address, city: e.target.value })}
+        className="border border-gray-300 rounded-lg px-3 py-2"
+      />
+      <input
+        type="text"
+        placeholder="Street"
+        value={address.street}
+        onChange={(e) => setaddress({ ...address, street: e.target.value })}
+        className="border border-gray-300 rounded-lg px-3 py-2"
+      />
+      <button
+        type="submit"
+        disabled={username === ""}
+        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition"
+      >
+        Send
+      </button>
     </form>
   );
 }

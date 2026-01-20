@@ -18,38 +18,52 @@ const savePhoto = async () => {
     fatchPhotos();
   };
   return (
-    <div className="photos-item">
+    <div className="photos-item bg-white p-4 rounded-2xl shadow-md flex flex-col items-center space-y-3 hover:scale-105 transform transition-transform duration-300">
       {isEdit ? (
-        <>
+        <div className="flex flex-col w-full space-y-2">
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Edit title"
-            className="post-input"
+            className="border border-gray-300 rounded-lg px-3 py-2"
           />
-           <input
+          <input
             type="text"
             value={imagurl}
             onChange={(e) => seturl(e.target.value)}
             placeholder="Edit url"
-            className="url-input"
+            className="border border-gray-300 rounded-lg px-3 py-2"
           />
-         
-          
-          <button onClick={savePhoto}>Save</button>
-        </>
+          <button
+            onClick={savePhoto}
+            className="mt-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-400 transition"
+          >
+            Save
+          </button>
+        </div>
       ) : (
         <>
-          <span className="photo-title">{photo.title}</span>
-          <img src={photo.imagurl} alt={photo.title} className="photo-img" />
-
-          <button className="btn edit" onClick={() => setIsEdit(true)}>
-            <MdEdit />
-          </button>
-          <button className="btn delete" onClick={handleDelete}>
-            <MdDelete />
-          </button>
+          <span className="font-semibold text-gray-800">{photo.title}</span>
+          <img
+            src={photo.imagurl}
+            alt={photo.title}
+            className="rounded-lg shadow-md w-full h-64 object-cover"
+          />
+          <div className="flex space-x-2 mt-2">
+            <button
+              className="text-blue-600 hover:text-blue-400 transition"
+              onClick={() => setIsEdit(true)}
+            >
+              <MdEdit size={20} />
+            </button>
+            <button
+              className="text-red-600 hover:text-red-400 transition"
+              onClick={handleDelete}
+            >
+              <MdDelete size={20} />
+            </button>
+          </div>
         </>
       )}
     </div>
